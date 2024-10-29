@@ -171,7 +171,7 @@
             groupBox1.Size = new Size(385, 208);
             groupBox1.TabIndex = 12;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Endereco";
+            groupBox1.Text = "Endereço";
             // 
             // label6
             // 

@@ -40,6 +40,10 @@
             buttonDeletarFornecedor = new Button();
             buttonAdicionarCliente = new Button();
             buttonDeletarCliente = new Button();
+            buttonAdicionarCompra = new Button();
+            buttonDeletarCompra = new Button();
+            buttonAdicionarVenda = new Button();
+            buttonDeletarVenda = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -162,11 +166,55 @@
             buttonDeletarCliente.UseVisualStyleBackColor = true;
             buttonDeletarCliente.Click += buttonDeletarCliente_Click;
             // 
+            // buttonAdicionarCompra
+            // 
+            buttonAdicionarCompra.Location = new Point(395, 69);
+            buttonAdicionarCompra.Name = "buttonAdicionarCompra";
+            buttonAdicionarCompra.Size = new Size(121, 34);
+            buttonAdicionarCompra.TabIndex = 12;
+            buttonAdicionarCompra.Text = "Nova Compra";
+            buttonAdicionarCompra.UseVisualStyleBackColor = true;
+            buttonAdicionarCompra.Click += buttonAdicionarCompra_Click;
+            // 
+            // buttonDeletarCompra
+            // 
+            buttonDeletarCompra.Location = new Point(393, 109);
+            buttonDeletarCompra.Name = "buttonDeletarCompra";
+            buttonDeletarCompra.Size = new Size(123, 36);
+            buttonDeletarCompra.TabIndex = 13;
+            buttonDeletarCompra.Text = "Deletar";
+            buttonDeletarCompra.UseVisualStyleBackColor = true;
+            buttonDeletarCompra.Click += buttonDeletarCompra_Click;
+            // 
+            // buttonAdicionarVenda
+            // 
+            buttonAdicionarVenda.Location = new Point(522, 69);
+            buttonAdicionarVenda.Name = "buttonAdicionarVenda";
+            buttonAdicionarVenda.Size = new Size(113, 34);
+            buttonAdicionarVenda.TabIndex = 14;
+            buttonAdicionarVenda.Text = "Nova Venda";
+            buttonAdicionarVenda.UseVisualStyleBackColor = true;
+            buttonAdicionarVenda.Click += buttonAdicionarVenda_Click;
+            // 
+            // buttonDeletarVenda
+            // 
+            buttonDeletarVenda.Location = new Point(522, 115);
+            buttonDeletarVenda.Name = "buttonDeletarVenda";
+            buttonDeletarVenda.Size = new Size(113, 30);
+            buttonDeletarVenda.TabIndex = 15;
+            buttonDeletarVenda.Text = "Deletar";
+            buttonDeletarVenda.UseVisualStyleBackColor = true;
+            buttonDeletarVenda.Click += buttonDeletarVenda_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 545);
+            Controls.Add(buttonDeletarVenda);
+            Controls.Add(buttonAdicionarVenda);
+            Controls.Add(buttonDeletarCompra);
+            Controls.Add(buttonAdicionarCompra);
             Controls.Add(buttonDeletarCliente);
             Controls.Add(buttonAdicionarCliente);
             Controls.Add(buttonDeletarFornecedor);
@@ -199,5 +247,9 @@
         private Button buttonDeletarFornecedor;
         private Button buttonAdicionarCliente;
         private Button buttonDeletarCliente;
+        private Button buttonAdicionarCompra;
+        private Button buttonDeletarCompra;
+        private Button buttonAdicionarVenda;
+        private Button buttonDeletarVenda;
     }
 }

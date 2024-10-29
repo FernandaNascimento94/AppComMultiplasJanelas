@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppComMultiplasJanelas
 {
@@ -128,6 +129,87 @@ namespace AppComMultiplasJanelas
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
                     Clientes.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                }
+            }
+        }
+
+        private void buttonAdicionarCompra_Click(object sender, EventArgs e)
+        {
+            if (Fornecedores.Count == 0)
+            {
+                MessageBox.Show("Você Precisa Cadastrar Fornecedores antes de efetuar uma Compra.");
+                return;
+            }
+
+            if (Produtos.Count == 0)
+            {
+                MessageBox.Show("Você Precisa Cadastrar Produtos antes de efetuar uma Compra.");
+                return;
+            }
+
+            FormNovaCompra fnc = new FormNovaCompra(Fornecedores, Produtos);
+            var resultado = fnc.ShowDialog();
+            if (resultado == DialogResult.OK)
+            {
+                Compra compra = new Compra();
+
+                if (Compras.Count == 0) compra.Id = 1;
+                else compra.Id = Compras.Max(x => x.Id) + 1;
+
+                compra.IdProduto = fnc.IdProduto;
+                compra.IdFornecedor = fnc.IdFornecedor;
+                compra.Quantidade = (int)fnc.Quantidade;
+                compra.Desconto = fnc.Desconto;
+                compra.DataCompra = DateTime.Now;
+
+                Compras.Add(compra);
+                this.dataGridView1.DataSource = Compras;
+
+            }
+        }
+
+        private void buttonDeletarCompra_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.DataSource == Compras)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    Compras.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                }
+            }
+        }
+
+        private void buttonAdicionarVenda_Click(object sender, EventArgs e)
+        {
+            if (Clientes.Count == 0) { MessageBox.Show("Você Precisa Cadastrar Clientes antes de efetuar uma venda."); return; }
+            if (Produtos.Count == 0) { MessageBox.Show("Você Precisa Cadastrar Produtos antes de efetuar uma venda."); return; }
+
+            FormNovaVenda fnv = new FormNovaVenda(Clientes, Produtos);
+            var resultado = fnv.ShowDialog();
+            if (resultado == DialogResult.OK)
+            {
+                Venda venda = new Venda();
+                if (Vendas.Count > 0) venda.Id = 1;
+                else venda.Id = Vendas.Max(x => x.Id);
+
+                venda.IdProduto = fnv.IdProduto;
+                venda.IdCliente = fnv.IdCliente;
+                venda.Quantidade = (int)fnv.Quantidade;
+                venda.Desconto = fnv.Desconto;
+                venda.DataVenda = DateTime.Now;
+
+                Vendas.Add(venda);
+                this.dataGridView1.DataSource = Vendas;
+            }
+        }
+
+        private void buttonDeletarVenda_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.DataSource == Compras)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    Vendas.RemoveAt(dataGridView1.SelectedRows[0].Index);
                 }
             }
         }

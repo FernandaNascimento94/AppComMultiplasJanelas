@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppComMultiplasJanelas
 {
-    internal class Produto
+    public class Produto
     {
         [DisplayName("Id")] public int Id { get; set; }
         [DisplayName("Produto")] public string Nome { get; set; }
